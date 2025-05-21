@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block body %}
+<div class="container mt-5 w-50">
+    <h1>PROFILE UPDATE</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="main_photo" class="form-label">Main photo</label>
+            {{ form.main_photo|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            {{ form.name|add_class:"form-control"|attr:"placeholder:Enter your name" }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Description</label>
+            {{ form.description|add_class:"form-control"|attr:"placeholder:Enter your Description" }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Main Project</label>
+            {{ form.main_project|add_class:"form-control"|attr:"placeholder:Enter your Main Project" }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Add Resume</label>
+            {{ form.add_resume|add_class:"form-control"|attr:"placeholder:Enter your Add Resume" }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+    {% endblock body %}
