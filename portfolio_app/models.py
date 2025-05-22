@@ -23,6 +23,44 @@ class Profile(SingleObjectModel):
     description = models.CharField(max_length=50)
     main_project = models.CharField(max_length=50)
     add_resume = models.FileField(upload_to='uploads/',)
+    phone_number = models.CharField(max_length=10)
+    email = models.EmailField(max_length=254)
     
     def __str__(self):
         return self.name
+
+class AboutMe(models.Model):
+    description = models.TextField()
+    
+    def __str__(self):
+        return self.description
+
+class Skill(models.Model):
+    logo_link = models.CharField(max_length=50)
+    logo_name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.logo_name
+
+class Project(models.Model):
+    project_name = models.CharField(max_length=100)
+    project_des = models.CharField(max_length=100)
+    github_link = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.project_name
+
+class Testimonials(models.Model):
+    writer = models.CharField(max_length=100)
+    content = models.CharField(max_length=100)
+    
+    
+    def __str__(self):
+        return self.writer
+    
+class Journey(models.Model):
+    year = models.IntegerField()
+    details = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return str(self.year)
